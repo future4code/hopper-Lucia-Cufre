@@ -1,0 +1,2 @@
+# Aprendizados da semana
+Essa semana aprendimos usar o **terminal**, alguns codigos para criar arquivos e pastas, mover e copia-los, apaga-los, entre outras funcoes. Tambem aprendimos como usar o **git e o github**, suas diferencas e suas funcoes. Como iremos utiliza-los quase diariamente para fazer e entregar o exercicios. 
