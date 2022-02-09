@@ -39,11 +39,9 @@ console.log("O novo valor de b é", b)
 
 
 // DESAFIO
-/*let notaUm = Number(prompt("Qual nota tirou no primeiro exame?"))
+let notaUm = Number(prompt("Qual nota tirou no primeiro exame?"))
 let notaDois = Number(prompt("Qual nota tirou no segundo exame?"))
 console.log(typeof notaUm)
 console.log(typeof notaDois)
-console.log(notaUm , notaDois)
-*/
-
-
+console.log(notaUm + notaDois)
+console.log(notaUm * notaDois)
