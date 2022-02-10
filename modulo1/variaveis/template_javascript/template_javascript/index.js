@@ -11,7 +11,7 @@
 
 // *EXERCICIOS DE ESCRITA DE CODIGO*
 
-let nome = prompt ("Qual é seu nome?")
+/*let nome = prompt ("Qual é seu nome?")
 let idade = prompt ("Qual é sua idade?")
 //console.log(typeof nome)
 //console.log(typeof idade)
@@ -44,4 +44,19 @@ let notaDois = Number(prompt("Qual nota tirou no segundo exame?"))
 console.log(typeof notaUm)
 console.log(typeof notaDois)
 console.log(notaUm + notaDois)
-console.log(notaUm * notaDois)
+console.log(notaUm * notaDois)*/
+
+/*const pergunta1 = "Você está usando azul hoje?";
+ const pergunta2 = "Você gosta de laranjas?";
+const pergunta3 = "Você é estudante na Labenu?";
+
+const resposta1 = prompt(pergunta1);
+ const resposta2 = prompt(pergunta2);
+ const resposta3 = prompt(pergunta3);
+
+console.log(pergunta1, "-", resposta1);
+ console.log(pergunta2, "-", resposta2);
+console.log(pergunta3, "-", resposta3);
+RESPOSTA CORRETA DO EXERCICIO. NO EXERCICIO ESTAVAM PEDINDO PRA FAZER
+DUAS VARIAVEIS EU FIZ SO UMA, E DAI DEPOIS ESCREVI EM STRING 
+DESSE JEITO AQUI EU CONSIGO FAZER AS DUAS VARIAVEIS.!*/
