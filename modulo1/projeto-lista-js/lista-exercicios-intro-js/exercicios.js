@@ -1,5 +1,5 @@
 // EXEMPLOS DE IMPLEMENTAÇÃO ---------------------------------------------------------------
-/*
+
 // EXERCÍCIO 0A
 function soma(num1, num2) {
   // implemente sua lógica aqui
@@ -39,9 +39,9 @@ function calculaIMC(Peso, Altura) {
   // implemente sua lógica aqui
   return Peso / (Altura * Altura)
 }
-*/
+
 // EXERCÍCIO 04 
-/*
+
 function imprimeInformacoesUsuario() {
   // implemente sua lógica aqui
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
@@ -50,30 +50,32 @@ function imprimeInformacoesUsuario() {
   const email = prompt("Me informe seu email por favor")
   
   console.log(`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`)
-} */
+} 
 
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // implemente sua lógica aqui
-  /*
+  
   const corUno = prompt("qual sua primeir cor fav?")
   const corDos = prompt("Qual sua seg cor fav?")
   const corTres = prompt("Qual sua terceira cor fav?")
   const cores = [ corUno , corDos , corTres ]
   console.log(cores)
-}*/
+}
 
-// EXERCÍCIO 06
+// EXERCÍCIO 06 
+
 function retornaStringEmMaiuscula(string) {
   // implemente sua lógica aqui
-  const saludo = "oi"
-  const saludoDos = saludo.toUpperCase()
-  return saludoDos
+ const saludo = string.toUpperCase()
+ return saludo
 }
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
   // implemente sua lógica aqui
+  const quantidade = custo / valorIngresso
+  return quantidade
 
 }
 
