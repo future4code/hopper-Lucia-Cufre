@@ -1,5 +1,4 @@
 // EXEMPLOS DE IMPLEMENTAÇÃO ---------------------------------------------------------------
-
 // EXERCÍCIO 0A
 function soma(num1, num2) {
   // implemente sua lógica aqui
@@ -81,47 +80,72 @@ function calculaIngressosEspetaculo(custo, valorIngresso) {
 
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
-  // implemente sua lógica aqui
-
+  // implemente sua lógica aqui 
+ return string1.length === string2.length
+  
 }
 
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
   // implemente sua lógica aqui
-
+  array [5, 6, 8]
+  return array[0]
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
-
+  array 
+  return array[array.length - 1]
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-
+  array
+  let aReserva = array[0]
+  array[0] = array[array.length-1]
+  array[array.length-1] = aReserva
+  return array
+  
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
-
+  return string1.toLowerCase() === string2.toLowerCase()
 }
+
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+  const anoAtual = Number(prompt("Em que ano estamos?"))
+  const anoNasc = Number(prompt("Me informe o ano de nascimento"))
+  const anoId = Number(prompt("Em que ano foi emitida sua identidade?"))
+  let idade = anoAtual - anoNasc
+  let anosRenov = anoAtual - anoId
+  console.log(( idade <= 20 && anosRenov >= 5 ) || ( idade > 20 && idade <= 50 && anosRenov >= 10) || (idade > 50 && anosRenov >= 15))
 
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+  const multiplo = ano % 400 == 0
+  const multiploUm = ano % 4 == 0
+  const multiploDois = ano % 100 != 0
+  return multiploUm && multiploDois || multiplo
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
-
+  const idade = prompt("Você tem mais de 18 anos?")
+  const ensinoMedio = prompt("Você possui ensino médio completo?")
+  const horarios = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
+  let anos = idade == "sim"
+  let estudos = ensinoMedio == "sim"
+  let disponibilidade = horarios == "sim"
+  console.log(anos && estudos && disponibilidade)
 }
