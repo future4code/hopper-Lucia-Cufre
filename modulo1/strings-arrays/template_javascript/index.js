@@ -76,4 +76,4 @@ console.log(fraseA)
 const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
 //const aba = frutas.indexOf("Abacaxi")
 //console.log( aba , frutas.length)
-console.log(frutas.indexOf("Abacaxi") , frutas.length)
+
