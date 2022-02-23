@@ -142,9 +142,16 @@ const filmes = () => {
 
 // 3.
 
-function stock(frutaUm){
-  frutaUm.disponibilidade = !frutaUm.disponibilidade
-  return frutaUm
+function stock(laranja){
+  laranja.disponibilidade = !frutaUm.disponibilidade
+  return laranja
 }
 console.log(stock(frutaUm))
+
+// function stock(frutaUm){
+//     frutaUm.disponibilidade = !frutaUm.disponibilidade
+//     return frutaUm
+//   }
+//   console.log(stock(frutaUm))
 */
+
