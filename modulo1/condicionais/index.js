@@ -20,7 +20,7 @@
 
 // 1. 
 /*
-const idade = Number(confirm("Voce é maior de 18 anos?"))
+const idade = Number(confirm("Voce tem 18 anos ou mais?"))
 
 if (idade == true){
     console.log("Voce pode dirigir!")
