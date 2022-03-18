@@ -104,7 +104,11 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+  const arrayNovo = []
+  const arrayOrdenado = retornaArrayOrdenado(array)
+  arrayNovo.push(arrayOrdenado[arrayOrdenado.length - 2])
+  arrayNovo.push(arrayOrdenado[1])
+  return arrayNovo
 }
 
 // EXERCÍCIO 11
@@ -121,8 +125,8 @@ function retornaChamadaDeFilme(filme) {
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
-   
+   return {...pessoa,
+  nome: "ANÔNIMO"}
 }
 
 // EXERCÍCIO 13A
