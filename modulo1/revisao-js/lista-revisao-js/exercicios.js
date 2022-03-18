@@ -36,7 +36,7 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-   
+   // map e filter
 }
 
 // EXERCÍCIO 06
@@ -93,7 +93,13 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+  if(ladoA == ladoB && ladoB == ladoC){
+    return "Equilátero"
+  }else if(ladoA == ladoB || ladoA == ladoC || ladoB == ladoC){
+    return "Isósceles"
+  }else{
+    return "Escaleno"
+  }
 }
 
 // EXERCÍCIO 10
@@ -103,11 +109,19 @@ function retornaSegundoMaiorESegundoMenor(array) {
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+   let objeto = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+   }
+   filme = objeto
+   return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
+   
    
 }
 
