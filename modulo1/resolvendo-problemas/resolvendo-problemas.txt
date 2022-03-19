@@ -1,0 +1,13 @@
+Realizando os 7 passos mencionados em aula, vamos estar nos beneficiando na hora de desenvolver nosso codigo. 
+Desta forma conseguimos identificar cuais caminhos podemos tomar para resolver nosso problema e qual deles ira nos dar a solucao
+e melhor desenvolvimento de codigo.
+No nosso primeiro passo é importante colocar muita atencao ao coomprender nosso problema. Desta forma iremos continuar com mais confianza, tendo o conhecimento
+de informacoes basicas e principais.
+Apos isso vamos retirar as informacoes relevantes, vamos buscar palavras chaves com as quais compor nosso codigo.
+Depois que obtemos estas palavras chaves iremos pensar nas entradas e saidas. Como e quais serao os dados recebidos, quais as possiveis respostas e os formatos.
+Dai ja serei capas de criar uma funcao com essas entradas e saidas, e comecar desenvolver.
+Logo, fazer um esquema visual ajuda pensar na logica, se perguntar "o que o codigo tem que lograr fazer?", e criar um diagrama que responda isso.
+Uma vez que consigo entender a logica que vou usar posso criar um codigo feio, quer dizer um codigo baguncado, que nao faca muito sentido como codigo em se, 
+mas que ajuda com que comece a tomar forma. Criados nossos codigos feios iremos testar as melhores opcoes, ate que uma delas de certo. 
+Uma vez que sabemos qual codigo funciona e com qual iremos ficar, vamos refatorarlo, quer dizer pulir o codigo, melhora-lo. Colocar nomes de variaveis que fazam mais sentido,
+separar as funcoes ordenadamente, entre outras coisas que podamos melhorar dele. 
