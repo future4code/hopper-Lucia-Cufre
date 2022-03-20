@@ -181,7 +181,7 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
     if (a.nome < b.nome) {
       return -1;
     }
-    // a must be equal to b
+  
     return 0;
   });
   return consultas
@@ -190,5 +190,13 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
+  
+  consultas.sort((a, b) =>
+  {
+    a = a.dataDaConsulta.split("/").reverse().join()
+    b = b.dataDaConsulta.split("/").reverse().join()
+    return a.localeCompare(b)
+  })
 
+  return consultas
 }
