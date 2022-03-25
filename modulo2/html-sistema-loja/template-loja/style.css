@@ -1,0 +1,64 @@
+
+
+.centralizar{
+    text-align: center;
+}
+
+#font-uno{
+    font-family: Arial, Helvetica, sans-serif ;
+font-weight: 600;
+color: coral;
+text-decoration: underline;
+    text-decoration-color:coral;
+}
+#background{
+    background-color:cornsilk;
+}
+
+.font-dos{
+    font-family: Arial, Helvetica, sans-serif ;
+font-weight: 200;
+color: rgb(248, 100, 46);
+}
+.underline{
+    text-decoration: underline;
+}
+
+.links{
+    background-color: rgb(80, 21, 136);
+}
+
+.cada-link{
+    color: rgb(209, 129, 72);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin: 0 20px 0 20px;
+}
+
+.font-tres{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   color: rgb(99, 49, 14);
+}
+.tamanho{
+    font-size: large;
+}
+.fondo-dos{
+    background-color:rgb(233, 191, 176);
+}
+.font-cuatro{
+color:black;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.margin{
+    margin-left: 30px;
+}
+.margin-down{
+    margin-bottom: 15px;
+}
+.margin-table{
+    margin-left: 350px;
+}
+
+.tabela{
+    background-color:wheat;
+}
