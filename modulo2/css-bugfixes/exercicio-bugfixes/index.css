@@ -112,10 +112,14 @@ div:last-child {
 }
 
 table {
-  width: 60%;
+  width: 50%;
     margin: auto;
-    
 }
+
+img{
+    width: 50px;
+}
+
 
 
 td button {
