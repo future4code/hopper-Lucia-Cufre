@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+.margin{
+    margin-top: 180px;
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -30,7 +34,8 @@ img {
 }
 
 div>p:first-child {
-    display: inline;
+    display: inline-block;
+  
 }
 
 div img {
