@@ -113,7 +113,11 @@ div:last-child {
 
 table {
   width: 50%;
-    margin: auto;
+  margin: auto;
+}
+
+.centro{
+    text-align: center;
 }
 
 img{
@@ -135,6 +139,10 @@ td button {
     height: 100px;
 }
 
+.icone{
+    width: 25px;
+    height: 30px;
+}
 
 #back-button {
     background-color: white;
@@ -144,6 +152,7 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+  
 }
 
 #back-button:hover {
