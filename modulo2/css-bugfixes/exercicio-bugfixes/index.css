@@ -11,6 +11,11 @@
 
 .margin{
     margin-top: 180px;
+    display: inline-block;
+}
+
+.inline{
+    display: inline;
 }
 
 h2 {
@@ -33,10 +38,10 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
+/* div>p:first-child {
     display: inline-block;
   
-}
+} */
 
 div img {
     background: black;
@@ -107,8 +112,11 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+  width: 60%;
+    margin: auto;
+    
 }
+
 
 td button {
     background-color: #fadf63;
