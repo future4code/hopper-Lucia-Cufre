@@ -116,7 +116,7 @@ table {
   margin: auto;
 }
 
-.centro{
+td{
     text-align: center;
 }
 
@@ -155,10 +155,19 @@ td button {
   
 }
 
-#back-button:hover {
-    background-color: wheat
+#back-button:hover{
+    background-color: wheat;
+}
+#back-button:active{
+    color:white
 }
 
-#back-button:active{
+div button:hover{
+  background-color: #f1d03a;
+}
+div button:active{
     color: white;
 }
+
+
+
