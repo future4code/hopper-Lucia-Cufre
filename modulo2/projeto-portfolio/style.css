@@ -1,3 +1,42 @@
-.inline{
+#background{
+    background-color:rgb(250, 248, 241);
+}
+#barra{
+    background-color:rgb(125, 75, 161);
+
+}
+
+.lca{
     display: inline;
+    margin-left: 40px ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: xx-large;
+}
+
+.text1{
+   margin: 150px 500px 20px 550px ;
+   font-size: larger;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+;
+}
+.img{
+    margin: -285px 0px 0 860px;
+}
+
+.home{
+    margin: 0 20px 0 700px;
+text-decoration-line: none;
+font-family:Arial, Helvetica, sans-serif;
+
+}
+.links{
+    margin: 0 20px 0 20px;
+    text-decoration-line: none;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.list{
+    margin: -280px 0px 0 150px;
+    font-family:Arial, Helvetica, sans-serif;
 }
