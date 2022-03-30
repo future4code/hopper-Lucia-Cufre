@@ -79,9 +79,6 @@ div img {
     text-align: center;
 }
 
-.icone {
-    height: 15px;
-}
 
 
 /** 
@@ -150,6 +147,13 @@ td button {
 .icone{
     width: 25px;
     height: 30px;
+}
+
+.icone:hover{
+    opacity: 0.3;
+}
+.icone:active{
+    opacity: 1;
 }
 
 #back-button {
