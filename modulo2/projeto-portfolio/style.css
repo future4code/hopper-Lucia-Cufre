@@ -1,6 +1,6 @@
 /*HOME*/
 
-*{
+* {
     padding: 0%;
     margin: 0%;
 }
@@ -51,33 +51,79 @@ font-family:Arial, Helvetica, sans-serif;
 
 /* COMECANDO TUDO DE CERO..*/
 
-header{
+body{
+    background: linear-gradient(to bottom, white, floralwhite);
+}
+
+header {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
-   align-items: center;
-   padding: 10px 0 10px 0;
-   border-bottom: 0.3px solid rgb(160, 75, 131);
-   box-shadow:  0px 1px rgb(160, 75, 131);
-   background-color: rgb(255, 245, 236);
-   
-    
+    align-items: center;
+    padding: 10px 0 10px 0;
+    box-shadow: 0px 0px 5px plum;
+    background: linear-gradient(to bottom, papayawhip, plum);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+
 }
 
-.titulo{
+.titulo {
     justify-self: left;
     margin-left: 100px;
-  }
-  
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+}
 
-a{
+
+header a {
     text-decoration-line: none;
+    font-family: 'Istok Web', sans-serif;
+    color: black;
+}
+
+
+ .section1{
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     justify-items: center;
+     align-items: center;
+    margin-top: 170px;
+}
+
+.imgsection1{
+    margin-right: 40%;
+    box-shadow: 2px 0 0 2px beige;
+}
+
+
+.psection1{
+    margin-left: 50%;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px beige;
+    padding: 40px 25px 40px 25px;
+    font-family: 'Istok Web', sans-serif;
+    background: linear-gradient(to bottom, papayawhip, plum);
+
+} 
+
+body a{
     
+    color: black;
+}
+body a:hover{
+ 
+  color: white;
 }
 
 
 
 
-main{
+
+
+
+.section2{
     margin-top: 100px;
 }
