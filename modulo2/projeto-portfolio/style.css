@@ -52,17 +52,14 @@ font-family:Arial, Helvetica, sans-serif;
 /* COMECANDO TUDO DE CERO..*/
 html,body{
     min-height: 100%;
-    background-color: blue;
-    position: relative;
-    
-}
-/* body{
     background: linear-gradient(to bottom, white, floralwhite);
+}
 
- background-color: blue;
- height: 100%;
- 
-} */
+body{
+    height: 100%;
+    position: relative;
+}
+
 
 header {
     display: grid;
@@ -100,7 +97,6 @@ header a {
      justify-items: center;
      align-items: center;
     margin-top: 170px;
-    
 }
 
 .imgsection1{
@@ -120,13 +116,14 @@ header a {
 } 
 
 footer{
-    background-color: white;
+    width: 98%;
+    background-color: pink;
     color: black;
-    position: absolute;
-    bottom: 0;
     text-align: center;
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom: -46%;
+    
 }
 
 
@@ -267,4 +264,20 @@ button{
     position: absolute;
     top: 160px;
     right: 120px;
+}
+
+.imglinks1{
+width: 50px;
+}
+
+.imglinks2{
+    width: 80px;
+}
+
+.imglinks3{
+    width: 40px;
+}
+
+.imglinks4{
+    width: 40px;
 }
