@@ -50,10 +50,19 @@ font-family:Arial, Helvetica, sans-serif;
 } */
 
 /* COMECANDO TUDO DE CERO..*/
-
-body{
-    background: linear-gradient(to bottom, white, floralwhite);
+html,body{
+    min-height: 100%;
+    background-color: blue;
+    position: relative;
+    
 }
+/* body{
+    background: linear-gradient(to bottom, white, floralwhite);
+
+ background-color: blue;
+ height: 100%;
+ 
+} */
 
 header {
     display: grid;
@@ -91,6 +100,7 @@ header a {
      justify-items: center;
      align-items: center;
     margin-top: 170px;
+    
 }
 
 .imgsection1{
@@ -109,6 +119,27 @@ header a {
 
 } 
 
+footer{
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+/* sobremim{
+display: flex;
+justify-content: start;
+margin-top: 10% ;
+text-align: center;
+background-color: pink;
+padding: 50px 0 0 0 ;
+
+} */
+
 body a{
     
     color: black;
@@ -119,11 +150,121 @@ body a:hover{
 }
 
 
+.imgaboutme{
+width: 350px;
+margin-top: 100px;
+box-shadow: 5px 4px 3px grey;
+}
 
+.habilidades{
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    
 
+}
 
+h3{
+    text-decoration-line: underline;
+    font-family: 'Istok Web', sans-serif;;
+}
 
+ul{
+    font-family: 'Istok Web', sans-serif;
+}
 
-.section2{
+.softskills{
+    justify-self: start;
+    background-color: pink;
+    padding-right: 50px;
+    box-shadow: 5px 2px 3px grey;
+    
+}
+.tecnicas{
+    justify-self: start;
+    background-color: pink;
+    padding: 50%;
+    box-shadow: 5px 2px 3px grey;
+}
+
+/* sobremim{
+display: flex;
+justify-content: start;
+margin-top: 10% ;
+text-align: center;
+background-color: pink;
+padding: 50px 0 0 0 ;
+
+} */
+
+.experiencia{
     margin-top: 100px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+margin-left: 20px;
+font-family: 'Istok Web', sans-serif;
+
+}
+
+ .formacao{
+    align-self: center;
+    
+    box-shadow: 3px 2px 4px 5px pink;
+    } 
+
+    .laboral{
+        box-shadow: 3px 2px 4px 5px pink;
+    }
+
+.marginp{
+    margin-top: 50px;
+}
+
+form{
+    margin-top: 150px;
+}
+
+form div{
+    margin-top: 10px;
+    text-align: center;
+    font-size: larger;
+    font-family: 'Istok Web', sans-serif;
+}
+
+.mensagem{
+    position: absolute;
+    left: 67vh;
+}
+
+.input{
+    width: 300px;
+    height: 300px;
+}
+
+.input2{
+    
+    width: 300px;
+}
+.posicao{
+    margin-right: 60px;
+}
+
+
+button{
+    margin-left: 100vh;
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    font-family: 'Istok Web', sans-serif;
+
+}
+
+.redes{
+    text-decoration-line: underline;
+    font-family: 'Istok Web', sans-serif;
+    position: absolute;
+    top: 160px;
+    right: 120px;
 }
