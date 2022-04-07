@@ -12,6 +12,19 @@ header {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+.input {
+    padding: 0.5vw 20vh;
+
+}
+
+.icone {
+    width: 5vh;
+    padding: 0 1vh;
+    align-self: center;
+}
+
+
 .labetube {
     text-decoration-line: none;
     color: black;
@@ -31,7 +44,7 @@ main div {
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 20px;
+    padding: 2vh;
 }
 
 main h2 {
@@ -47,11 +60,48 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 0;
+    padding: 2vh 2vh;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
+}
+
+@media screen and (min-device-width : 300px) and (max-device-width : 400px) {
+
+    main,
+    header,
+    footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    header div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .input {
+        width: 1rem;
+    }
+    
+     video{
+        width: 50vh;
+        
+    }
+
+    main{
+        margin-top: 15vh;
+    }
+
+    footer h2{
+        font-size: medium;
+    }
+
+
+
 }
