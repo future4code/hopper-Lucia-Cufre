@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right, white, rgb(51, 105, 117));
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.input{
+    padding: 5px 20vh;
+    
+}
+
+.icone{
+    width: 5vh;
+    padding: 0 15px;
+}
+
+a img {
+    width: 40vh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin: 10px;
+}
+
+main div {
+    padding: 5vh;
+    text-align: center;
+}
+
+main div h3 {
+    padding: 2vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+main div:hover {
+    background: linear-gradient(to bottom, rgb(51, 105, 117), floralwhite);
+    padding: 30px;
+    
+}
+
+
+
+
+
+footer {
+    background: linear-gradient(to right, white, rgb(51, 105, 117));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
