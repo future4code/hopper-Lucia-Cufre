@@ -50,16 +50,15 @@ font-family:Arial, Helvetica, sans-serif;
 } */
 
 /* COMECANDO TUDO DE CERO..*/
+
+
 html,
 body {
     min-height: 100%;
 }
 
 body {
-    height: 100%;
-    position: relative;
     background: linear-gradient(to bottom, white, floralwhite);
-
 }
 
 
