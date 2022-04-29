@@ -9,7 +9,7 @@ import iconeComentario from "../../img/comment_icon.svg";
 import iconeSalvarBranco from "../../img/bookmarks-white.svg";
 import iconeSalvarPreto from "../../img/bookmarks-black.svg";
 import iconeCompatilhar from "../../img/share-svgrepo-com.svg";
-/* import {SecaoCompartilhar} from "../SecaoCompartilhar/SecaoCompartilhar";*/import { SecaoComentario } from "../SecaoComentario/SecaoComentario";
+/* import {SecaoCompartilhar} from "../SecaoCompartilhar/SecaoCompartilhar";*/ import { SecaoComentario } from "../SecaoComentario/SecaoComentario";
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -87,7 +87,6 @@ class Post extends React.Component {
       salvo: !this.state.salvo,
     });
   };
-
 
   /* onClickCompartilhar = () => {
   this.setState({
