@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import EnviaMensagem from "./Components/EnviaMensagem/EnviaMensagem.js";
+
 
 
 
@@ -13,7 +13,7 @@ const MainContainer= styled.div`
 
 `
 
-const CuadroDialogo = styled.div`
+const CuadroDialogo = styled.form`
 
 display: flex;
 flex-direction: column;
@@ -60,6 +60,8 @@ margin: 8px 0;
 
 `
 
+
+
 class App extends React.Component {
   state = {
     mensagens: [
@@ -96,11 +98,11 @@ class App extends React.Component {
   };
   
   
+     
 
   render() {
 
-    
-
+  
     const listaDeMensagens = this.state.mensagens.map((mensagem, index) => {
       return (
         
@@ -118,7 +120,7 @@ class App extends React.Component {
         <CuadroDialogo>{listaDeMensagens}</CuadroDialogo>
         
 
-        <Input>
+        <Input onSubmit={this.handleSubmit}>
           <input
             value={this.state.valorInputUsuario}
             onChange={this.onChangeUsuario}
@@ -130,7 +132,7 @@ class App extends React.Component {
             placeholder={"Mensagem"}
           />
 
-          <Enviar type="submit" onClick={this.enviaMensagem}>Enviar</Enviar>
+          <Enviar type="submit"onClick={this.enviaMensagem}>Enviar</Enviar>
         </Input>
       </MainContainer>
     );
