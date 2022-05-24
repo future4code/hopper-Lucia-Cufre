@@ -5,9 +5,16 @@ import ListaUsuarios from "../src/Components/ListaUsuarios.js";
 
 class App extends React.Component {
   state = {
+    telaAtual: "cadastro",
     listaUsuarios: [],
     inputNome: "",
     inputEmail: "",
+  };
+
+  trocarDeTela = () => {
+    this.setState({
+      telaAtual: this.state.telaAtual === "cadastro" ? "lista" : "cadastro",
+    });
   };
 
   componentDidMount = () => {
@@ -25,7 +32,6 @@ class App extends React.Component {
         }
       )
       .then((response) => {
-        console.log(response.data);
         this.setState({ listaUsuarios: response.data });
       })
       .catch((error) => {
@@ -33,13 +39,27 @@ class App extends React.Component {
       });
   };
 
-  criarUsuario = () => {
+  criarUsuario = async () => {
+    const url =
+      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
     const body = {
       name: this.state.inputNome,
       email: this.state.inputEmail,
     };
 
-    axios
+    try {
+      await axios.post(url, body, {
+        headers: {
+          Authorization: "lucia-cufre-aman-hopper",
+        },
+      });
+      this.getAllUsers();
+      alert("Cadastro realizado com sucesso");
+    } catch (error) {
+      alert("Nao foi possivel realizar o cadastro");
+    }
+
+    /* axios
       .post(
         "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
         body,
@@ -52,12 +72,13 @@ class App extends React.Component {
       .then((response) => {
         this.getAllUsers();
         alert("Cadastro realizado com sucesso");
-        this.setState({ inputNome: "", inputEmail: "" });
       })
       .catch((error) => {
         alert("Nao foi possivel realizar o cadastro");
+      })
+      .finally(() => {
         this.setState({ inputNome: "", inputEmail: "" });
-      });
+      }); */
   };
 
   onClickDeleta = (id) => {
@@ -100,15 +121,18 @@ class App extends React.Component {
 
     return (
       <div>
-        <CadastroUsuarios
-          valuNome={this.state.inputNome}
-          changeNome={this.onChangeNome}
-          valueEmail={this.state.inputEmail}
-          changeEmail={this.onChangeEmail}
-          onClickCad={this.criarUsuario}
-        />
-
-        <ListaUsuarios usuario={list} />
+        {this.state.telaAtual === "cadastro" ? (
+          <CadastroUsuarios
+            valuNome={this.state.inputNome}
+            changeNome={this.onChangeNome}
+            valueEmail={this.state.inputEmail}
+            changeEmail={this.onChangeEmail}
+            onClickCad={this.criarUsuario}
+            telalista={this.trocarDeTela}
+          />
+        ) : (
+          <ListaUsuarios usuario={list} volta={this.trocarDeTela} />
+        )}
       </div>
     );
   }

@@ -1,15 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 
-class ListaUsuarios extends React.Component  {
-  render(){
-  return (
-    <div>
-     <div>
-         <h4>{this.props.usuario}</h4>
-     </div>
-     <button onClick={this.props.volta}>Voltar</button>
-    </div>
-  );
+const Titulo = styled.h2`
+  text-decoration: underline;
+`;
+
+class ListaUsuarios extends React.Component {
+  render() {
+    return (
+      <div>
+        <Titulo>Lista de Usuarios</Titulo>
+        <li>
+          <ul>{this.props.usuario}</ul>
+        </li>
+        <button onClick={this.props.volta}>Voltar</button>
+      </div>
+    );
   }
 }
 
