@@ -1,6 +1,64 @@
 import React from "react";
 import axios from "axios";
 import ListaTracks from "../Components/ListaTracks.js";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+
+*{
+  margin:0;
+  padding: 0;
+}
+
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh;
+  button {
+    margin-left: 50px;
+    padding: 2vh 2vw;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #9932cc;
+    color: #9932cc;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: #9932cc;
+    text-decoration-line: underline;
+    margin-bottom: 5vh;
+  }
+`;
+
+const Ul = styled.ul`
+  display: flex;
+
+  align-items: center;
+  margin-left: 5vw;
+
+  li {
+    margin: 5vh 2vw;
+    color: #da70d6;
+    text-decoration-line: underline;
+  }
+
+  button {
+    margin: 2vh 2vw;
+    padding: 2vh 2vw;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #9932cc;
+    color: #9932cc;
+    font-weight: bold;
+  }
+`;
+
+
 
 class ListaPlaylists extends React.Component {
   state = {
@@ -46,35 +104,33 @@ class ListaPlaylists extends React.Component {
     }
   };
 
-  showTracks = () => {
-    this.setState({ tracks: !this.state.tracks });
+  showTracks = (playlistId) => {
+    this.setState({ tracks: !this.state.tracks, id: playlistId });
   };
 
   render() {
     return (
       <div>
-        <h2>Suas playlists!</h2>
+        <GlobalStyle />
+        <Header>
+          <h2>Suas playlists!</h2>
+          <button onClick={this.props.telaB}>Inicio</button>
+        </Header>
         <div>
           {this.state.listaPlaylist.map((playlist) => {
             return (
-              <ul key={playlist.id}>
+              <Ul key={playlist.id}>
                 <li>{playlist.name}</li>
 
                 <button onClick={() => this.deletePlaylist(playlist.id)}>
                   Eliminar Playlist
                 </button>
-                <button onClick={() => this.showTracks(playlist.id)}>
-                  Ver Músicas
-                </button>
-                {this.state.tracks && <ListaTracks id={playlist.id} />}
-                {/*  <button onClick={() => this.showTracks(playlist.id)}>
-                  Ver Músicas
-                </button> */}
-              </ul>
+                <button onClick={() => this.showTracks()}>Ver Músicas</button>
+                {this.state.tracks ? <ListaTracks id={playlist.id} /> : null}
+              </Ul>
             );
           })}
         </div>
-        <button onClick={this.props.telaB}>Inicio</button>
       </div>
     );
   }

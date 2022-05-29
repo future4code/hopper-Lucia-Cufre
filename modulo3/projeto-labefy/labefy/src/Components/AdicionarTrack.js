@@ -1,5 +1,18 @@
 import React from "react";
 import axios from "axios";
+import styled  from "styled-components";
+
+const Container = styled.div`
+display:flex;
+
+  input{padding: 0 1vw;
+  border-radius:16px;
+  background: #fff;
+  box-shadow:none;
+  border: 1px solid #dfe1e5;
+  }
+`
+
 
 export default class AdicionarTrack extends React.Component {
   state = {
@@ -45,7 +58,7 @@ export default class AdicionarTrack extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <input
           value={this.state.name}
           onChange={this.onChangeNome}
@@ -64,7 +77,7 @@ export default class AdicionarTrack extends React.Component {
         <button onClick={() => this.addTrackToPlaylist(this.props.onClick)}>
           Adicionar
         </button>
-      </div>
+      </Container>
     );
   }
 }
