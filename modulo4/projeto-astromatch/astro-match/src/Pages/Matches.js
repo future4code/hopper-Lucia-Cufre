@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Clear from "../Component/ButtonClear.js";
-function App(props) {
+
+
+function Matches(props) {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
@@ -23,17 +24,17 @@ function App(props) {
   return (
     <div>
       {matches.map((crush) => {
-        return(
-        <ul>
-          <p>{crush.name}</p>
-        <img src={crush.photo} alt={crush.photo_alt} />
+        return (
+          <ul>
+            <p>{crush.name}</p>
+            <img src={crush.photo} alt={crush.photo_alt} />
           </ul>
-        )
+        );
       })}
-<Clear/>
+      <button onClick={props.limpar}>Limpar</button>
       <button onClick={props.onClick}>Inicio</button>
     </div>
   );
 }
 
-export default App;
+export default Matches;
