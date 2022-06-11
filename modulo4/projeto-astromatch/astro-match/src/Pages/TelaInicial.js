@@ -1,14 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ButtonClear from "./ButtonClear";
+import styled, { createGlobalStyle } from "styled-components";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme}  from './theme.js';
 
-import styled from "styled-components";
-
+const GlobalStyle = createGlobalStyle`
+*{
+  padding:0;
+  margin:0;
+}
+`
 const Container = styled.div`
   * {
     box-sizing: boder-box;
   }
   display: flex;
   justify-content: center;
+  background-color: floralwhite;
 `;
 const Card = styled.div`
   text-align: center;
@@ -17,7 +30,8 @@ const Card = styled.div`
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
-  box-shadow: rgb(0 0 0 / 6%) 0px 0px 5px;
+  box-shadow: rgb(5 5 5 / 10%) 0px 2px 10px 0px;
+background-color:#f3e5f5;
 `;
 const Inside = styled.div`
   display: flex;
@@ -26,9 +40,17 @@ const Inside = styled.div`
 `;
 const Top = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 50px;
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid #808080;
+
+  h2{
+    margin-left: 6rem;
+    align-self: center;
+    color: 	#db7093;
+  }
+
+  
 `;
 
 const Foto = styled.div`
@@ -45,7 +67,7 @@ const Foto = styled.div`
   margin-top: 30px;
 `;
 const Efecto = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80");
+  background-image: url("https://img.freepik.com/fotos-gratis/resumo-luxo-creme-bege-bege-claro-como-fundo-de-textura-de-algodao-e-seda_1258-54560.jpg?w=2000");
   filter: blur(10px);
   height: 100%;
   width: 100%;
@@ -92,6 +114,13 @@ const P1 = styled.div`
 const P2 = styled.div`
   margin-left: -30px;
   font-size: 20px;
+`;
+
+const Choice = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+
 `;
 
 function Home(props) {
@@ -147,13 +176,15 @@ function Home(props) {
 
 
   return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
     <Container>
       {load ? (<p>Carregando..</p>) : profiles && profiles ? (
       <Card>
         <Inside>
           <Top>
             <h2>astromatch</h2>
-            <button onClick={props.onClick}>MATCHES</button>
+            <Button color="secondary" onClick={props.onClick}>MATCHES</Button>
           </Top>
           <div>
             <Foto>
@@ -169,20 +200,25 @@ function Home(props) {
                 <p>{profiles.bio}</p>
               </Legenda>
             </Foto>
-            <div>
-              <button onClick={() => choosePerson(false)}>NAO</button>
-              <button onClick={() => choosePerson(true)}>SIM</button>
-            </div>
+            <Choice>
+              <IconButton color="secondary" aria-label="add an alarm" size="large" onClick={() => choosePerson(false)}>
+        <CloseIcon fontSize="large"/>
+      </IconButton>
+              <IconButton color="primary" aria-label="add an alarm" size="large" onClick={() => choosePerson(true)}>
+        <FavoriteIcon fontSize="large"/>
+      </IconButton>
+            </Choice>
           </div>
         </Inside>
       </Card>)
       : (<div>
         <p>Nao existem mais opcoes</p>
-        <button onClick={props.limpar}>Limpar</button>
+        <ButtonClear main={getProfiles}/>
       </div>)
 }
       
     </Container>
+    </ThemeProvider>
   );
 }
 
