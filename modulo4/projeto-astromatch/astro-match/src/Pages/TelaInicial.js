@@ -2,36 +2,36 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ButtonClear from "./ButtonClear";
 import styled, { createGlobalStyle } from "styled-components";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import CloseIcon from '@mui/icons-material/Close';
-import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
-import { ThemeProvider } from '@mui/material/styles';
-import {theme}  from './theme.js';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
+
+import MatchButton from "@mui/icons-material/SupervisorAccountOutlined";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./theme.js";
 
 const GlobalStyle = createGlobalStyle`
-*{
-  padding:0;
-  margin:0;
-}
-`
-const Container = styled.div`
-  * {
-    box-sizing: boder-box;
-  }
+  
+ *{
+box-sizing:border-box;
+ }
+ `;
+
+const Container = styled.body`
   display: flex;
   justify-content: center;
-  background-color: floralwhite;
+  background-image: url("https://img.freepik.com/vetores-gratis/padrao-perfeito-de-coracoes-no-fundo-branco_586862-114.jpg");
 `;
 const Card = styled.div`
   text-align: center;
   width: 400px;
-  height: 620px;
+  height: 610px;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: white;
   box-shadow: rgb(5 5 5 / 10%) 0px 2px 10px 0px;
-background-color:#f3e5f5;
+  background-color: #f3e5f5;
+  margin-top: 10px;
+  margin-bottom: 5px;
 `;
 const Inside = styled.div`
   display: flex;
@@ -41,16 +41,14 @@ const Inside = styled.div`
 const Top = styled.div`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   height: 50px;
   border-bottom: 1px solid #808080;
 
-  h2{
+  h2 {
     margin-left: 6rem;
-    align-self: center;
-    color: 	#db7093;
+    color: #db7093;
   }
-
-  
 `;
 
 const Foto = styled.div`
@@ -119,8 +117,22 @@ const P2 = styled.div`
 const Choice = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 15px;
-
+  margin-top: 10px;
+`;
+const Erro = styled.div`
+  text-align: center;
+  width: 400px;
+  height: 610px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: rgb(5 5 5 / 10%) 0px 2px 10px 0px;
+  background-color: #f3e5f5;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Home(props) {
@@ -134,21 +146,20 @@ function Home(props) {
   }, []);
 
   const getProfiles = () => {
-    setLoad(true)
+    setLoad(true);
     axios
       .get(
         `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/lucia/person`
       )
       .then((response) => {
-        console.log(response.data.profile);
         setProfiles(response.data.profile);
-        setLoad(false)
+        setLoad(false);
       })
       .catch((err) => {
         console.log(err.message);
       });
-      setLoad(false)
-    };
+    setLoad(false);
+  };
 
   const choosePerson = (value) => {
     const url =
@@ -166,58 +177,74 @@ function Home(props) {
         setIdentity(profiles.id);
         setChoices(value);
         getProfiles();
-        console.log(response.data);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
 
-
-
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle/>
-    <Container>
-      {load ? (<p>Carregando..</p>) : profiles && profiles ? (
-      <Card>
-        <Inside>
-          <Top>
-            <h2>astromatch</h2>
-            <Button color="secondary" onClick={props.onClick}>MATCHES</Button>
-          </Top>
-          <div>
-            <Foto>
-              <Efecto></Efecto>
-              <Img src={profiles.photo} alt={profiles.photo_alt} />
-              <Legenda>
-                <div>
-                  <P1>
-                    <p>{profiles.name} ,</p>
-                  </P1>
-                  <P2>{profiles.age}</P2>
-                </div>
-                <p>{profiles.bio}</p>
-              </Legenda>
-            </Foto>
-            <Choice>
-              <IconButton color="secondary" aria-label="add an alarm" size="large" onClick={() => choosePerson(false)}>
-        <CloseIcon fontSize="large"/>
-      </IconButton>
-              <IconButton color="primary" aria-label="add an alarm" size="large" onClick={() => choosePerson(true)}>
-        <FavoriteIcon fontSize="large"/>
-      </IconButton>
-            </Choice>
-          </div>
-        </Inside>
-      </Card>)
-      : (<div>
-        <p>Nao existem mais opcoes</p>
-        <ButtonClear main={getProfiles}/>
-      </div>)
-}
-      
-    </Container>
+      <Container>
+        <GlobalStyle />
+        {load ? (
+          <p>Carregando..</p>
+        ) : profiles && profiles ? (
+          <Card>
+            <Inside>
+              <Top>
+                <h2>astromatch</h2>
+
+                <MatchButton
+                  color="secondary"
+                  aria-label="add an alarm"
+                  size="large"
+                  onClick={props.onClick}
+                  fontSize="large"
+                ></MatchButton>
+              </Top>
+              <div>
+                <Foto>
+                  <Efecto></Efecto>
+                  <Img src={profiles.photo} alt={profiles.photo_alt} />
+                  <Legenda>
+                    <div>
+                      <P1>
+                        <p>{profiles.name} ,</p>
+                      </P1>
+                      <P2>{profiles.age}</P2>
+                    </div>
+                    <p>{profiles.bio}</p>
+                  </Legenda>
+                </Foto>
+                <Choice>
+                  <IconButton
+                    color="secondary"
+                    aria-label="add an alarm"
+                    size="large"
+                    onClick={() => choosePerson(false)}
+                  >
+                    <CloseIcon fontSize="large" />
+                  </IconButton>
+                  <IconButton
+                    color="primary"
+                    aria-label="add an alarm"
+                    size="large"
+                    onClick={() => choosePerson(true)}
+                  >
+                    <FavoriteIcon fontSize="large" />
+                  </IconButton>
+                </Choice>
+              </div>
+            </Inside>
+          </Card>
+        ) : (
+          <Erro>
+            <p>Nao existem mais opcoes</p>
+            <ButtonClear main={getProfiles} />
+          </Erro>
+        )}
+      </Container>
     </ThemeProvider>
   );
 }
