@@ -18,7 +18,7 @@ box-sizing:border-box;
 const Container = styled.body`
   display: flex;
   justify-content: center;
-  background-image: url("https://img.freepik.com/vetores-gratis/padrao-perfeito-de-coracoes-no-fundo-branco_586862-114.jpg");
+  background-image: url("https://images.vexels.com/media/users/3/284258/raw/6e75e069dc7976d15d92fb1e24b2a774-desenho-de-padr-o-de-flores-roxas-selvagens.jpg");
 `;
 
 const Card = styled.div`
@@ -34,6 +34,7 @@ const Card = styled.div`
 const Top = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 50px;
   border-bottom: 1px solid #808080;
   color: #db7093;
