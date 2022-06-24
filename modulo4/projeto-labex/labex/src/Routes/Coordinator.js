@@ -18,8 +18,8 @@ export function goToAdminHome(navigate) {
   navigate("/admin/trips/list");
 }
 
-export function goToTripDetails(id, navigate) {
-  navigate(`/admin/trips/${id}`);
+export function goToTripDetails(navigate) {
+  navigate(`/admin/trips/:id`);
 }
 
 export function goToCreateTrip(navigate) {

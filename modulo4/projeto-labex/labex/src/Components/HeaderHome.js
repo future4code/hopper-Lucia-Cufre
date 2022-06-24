@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { goToLoginPage, goToListTrips } from "../Routes/Coordinater";
+import { goToAdminHome, goToListTrips } from "../Routes/Coordinator";
 
 function HeaderHome() {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ function HeaderHome() {
   return (
     <header>
       <button onClick={() => goToListTrips(navigate)}>ListTrips</button>
-      <button onClick={() => goToLoginPage(navigate)}>LoginPage</button>
+      <button onClick={() => goToAdminHome(navigate)}>LoginPage</button>
     </header>
   );
 }

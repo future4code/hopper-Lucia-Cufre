@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import HeaderAdmin from "../Components/HeaderAdmin";
-import { goToTripDetails, goToLoginPage } from "../Routes/Coordinater";
+import { goToTripDetails, goToLoginPage } from "../Routes/Coordinator";
 import { useParams } from "react-router-dom";
-import { baseURL, axiosConfig } from "../hooks/constants";
-import { useProtectedPage } from "../../src/hooks/useProtectedPage";
+import { baseURL, axiosConfig } from "../Components/constants";
+import { useProtectedPage } from "../hooks/useProtectedPage";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 
 function AdminHome() {
   const [viagens, setViagens] = useState([]);
@@ -48,8 +49,18 @@ function AdminHome() {
   return (
     <div>
       <HeaderAdmin />
-      <button onClick={() => goToTripDetails(id)}>details</button>
-      <button onClick={deleteTrip}>Apagar</button>
+      {
+        viagens.map((viagem) => {
+          return(
+            <div key={viagem.id}>
+              <p>{viagem.name}</p>
+              <button onClick={()=>deleteTrip(viagem.id)}>Apagar</button>
+              <button onClick={() => goToTripDetails(navigate, viagem.id)}>details</button>
+            </div>
+          )
+        
+        })
+      }
     </div>
   );
 }

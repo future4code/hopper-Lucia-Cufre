@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { goToHomePage, goToCreateTrip, goToLoginPage } from "../Routes/Coordinater";
+import { goToHomePage, goToCreateTrip, goToLoginPage } from "../Routes/Coordinator";
 
 
 function HeaderAdmin() {
