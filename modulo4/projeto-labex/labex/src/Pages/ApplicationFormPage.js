@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToListTrips } from "../Routes/Coordinator";
 import { useForm } from "../hooks/useForm";
-import { baseURL, axiosConfig } from "../Components/constants";
+import { baseURL } from "../Components/constants";
 import axios from "axios";
-import { PropaneSharp } from "@mui/icons-material";
+import useRequestedData from "../hooks/useResquestedData";
+import ErrorPage from "../Pages/ErrorPage";
 
-function ApplicationForm(props) {
+function ApplicationForm() {
+
   const { form, onChange, cleanFields } = useForm({
     name: "",
     age: "",
@@ -14,6 +16,11 @@ function ApplicationForm(props) {
     profession: "",
     country: "",
   });
+
+  const [tripId, setTripId] = useState("");
+
+  const [allTrips, loading, error] = useRequestedData("/trips", {});
+
   const navigate = useNavigate();
 
   const applyToTrip = (id) => {
@@ -27,24 +34,42 @@ function ApplicationForm(props) {
     };
 
     axios
-      .post(url, body, axiosConfig)
+      .post(url, body)
       .then((res) => {
         alert("Inscrição realizada.");
         console.log(res.data);
+        cleanFields();
       })
       .catch((err) => {
         alert("Nao foi possível realizar a inscrição. Tente novamente.");
-        console.log(err.message);
+        console.log(err.response.message);
+        cleanFields();
       });
   };
 
   const submit = (event) => {
     event.preventDefault();
-    cleanFields();
+    setTripId("");
+    applyToTrip(tripId);
   };
 
+  const onChangeTrip = (event) => {
+    setTripId(event.target.value);
+  };
+
+  const tripChoice =
+    allTrips.trips &&
+    allTrips.trips.map((viagem) => {
+      return (
+        <option key={viagem.id} value={viagem.id}>
+          {viagem.name}
+        </option>
+      );
+    });
   return (
     <div>
+      {!loading && error && <ErrorPage />}
+      {loading && <p>Carregando..</p>}
       <form onSubmit={submit}>
         <input
           name={"name"}
@@ -77,7 +102,7 @@ function ApplicationForm(props) {
           name={"profession"}
           value={form.profession}
           onChange={onChange}
-          placeholder="Detalhes"
+          placeholder="Profissão"
           required
           pattern={"^.{10,}"}
           title={"Deve ter no mínimo 10 letras"}
@@ -368,14 +393,17 @@ function ApplicationForm(props) {
           <option value="Zimbabwe">Zimbabwe</option>
           <option value="Zâmbia">Zâmbia</option>
         </select>
-       {/*  <select 
-        onChange={onChange}
-          required>
-          <option></option>
-        </select> */}
-        <button onClick={() => applyToTrip(props.id)}>Enviar</button>
-      </form>
+        <select defaultValue={""} onChange={onChangeTrip} required>
+          <option value={""} disabled>
+            Escolha uma viagem
+          </option>
+          {tripChoice}
+        </select>
+      <div>
+        <button type={"submit"}>Enviar</button>
       <button onClick={() => goToListTrips(navigate)}>Voltar a Lista</button>
+      </div>
+      </form>
     </div>
   );
 }

@@ -7,10 +7,9 @@ import { useProtectedPage } from "../hooks/useProtectedPage";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 function AdminHome() {
   const [viagens, setViagens] = useState([]);
-  const { id } = useParams();
+
   useProtectedPage();
   const navigate = useNavigate();
 
@@ -49,18 +48,17 @@ function AdminHome() {
   return (
     <div>
       <HeaderAdmin />
-      {
-        viagens.map((viagem) => {
-          return(
-            <div key={viagem.id}>
-              <p>{viagem.name}</p>
-              <button onClick={()=>deleteTrip(viagem.id)}>Apagar</button>
-              <button onClick={() => goToTripDetails(navigate, viagem.id)}>details</button>
-            </div>
-          )
-        
-        })
-      }
+      {viagens.map((viagem) => {
+        return (
+          <div key={viagem.id}>
+            <p>{viagem.name}</p>
+            <button onClick={() => deleteTrip(viagem.id)}>Apagar</button>
+            <button onClick={() => goToTripDetails(navigate, viagem.id)}>
+              details
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }

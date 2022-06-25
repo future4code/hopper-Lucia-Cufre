@@ -6,7 +6,8 @@ function Error() {
   const navigate = useNavigate();
   return (
     <div>
-      <h1 onClick={() => goToHomePage(navigate)}>Pagina no encontrada</h1>
+      <h1>Pagina no encontrada</h1>
+    <button onClick={() => goToHomePage(navigate)}> Voltar a Home </button>
     </div>
   );
 }

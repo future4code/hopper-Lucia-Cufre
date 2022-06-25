@@ -25,7 +25,7 @@ function Login() {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         goToAdminHome(navigate);
-        console.log(response.data)
+     
       })
       .catch((err) => {
         goToHomePage(navigate);
