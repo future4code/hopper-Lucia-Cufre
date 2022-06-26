@@ -74,10 +74,3 @@ function ListTrips() {
 
 export default ListTrips;
 
-/* <div key={viagem.id}>
-              <p>Nome: {viagem.name}</p>
-              <p>Descrição: {viagem.description}</p>
-              <p>Planeta: {viagem.planet}</p>
-              <p>Duração: {viagem.durationInDays}</p>
-              <p>Data: {viagem.date}</p>
-            </div> */
