@@ -38,15 +38,17 @@ function ApplicationForm() {
       .post(url, body)
       .then((res) => {
         alert("Inscrição realizada.");
+        cleanFields();
       })
       .catch((err) => {
         alert("Nao foi possível realizar a inscrição. Tente novamente.");
+        cleanFields();
       });
   };
 
   const submit = (event) => {
     event.preventDefault();
-    cleanFields();
+    
   };
 
   const onChangeTrip = (event) => {

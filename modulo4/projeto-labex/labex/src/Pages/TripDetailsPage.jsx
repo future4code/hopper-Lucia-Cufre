@@ -20,7 +20,6 @@ function TripDetails() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [details, getDetails] = useRequestedData(`/trip/${id}`);
-
   useProtectedPage();
 
   const decideCandidate = (candidateId, value) => {

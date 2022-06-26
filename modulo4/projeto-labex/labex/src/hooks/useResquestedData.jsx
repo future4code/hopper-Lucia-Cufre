@@ -28,7 +28,7 @@ const useRequestedData = (endpoint, initialState) => {
     getData();
   }, [endpoint]);
 
-  return [data, getData, isLoading, error];
+  return [data, getData];
 };
 
 export default useRequestedData;
