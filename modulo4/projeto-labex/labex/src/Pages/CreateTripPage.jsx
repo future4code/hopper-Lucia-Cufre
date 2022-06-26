@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { baseURL, axiosConfig } from "../Components/constants";
-import { goToAdminHome, goToLoginPage } from "../Routes/Coordinator";
+import { goToAdminHome } from "../Routes/Coordinator";
 import axios from "axios";
 import { useProtectedPage } from "../hooks/useProtectedPage";
 import { useForm } from "../hooks/useForm";
+import { GlobalStyle, PageContainer } from "../styled/styledPage";
 
 function CreateTrip() {
   const { form, onChange, cleanFields } = useForm({
@@ -30,14 +31,11 @@ function CreateTrip() {
     axios
       .post(url, body, axiosConfig)
       .then((res) => {
-        
         alert("Viagem criada com sucesso.");
-        console.log(res.data);
       })
       .catch((err) => {
         alert("Nao foi possível criar a viagem.");
-        goToLoginPage(navigate);
-        console.log(err.message);
+        goToAdminHome(navigate);
       });
   };
 
@@ -47,7 +45,8 @@ function CreateTrip() {
   };
 
   return (
-    <div>
+    <PageContainer>
+      <GlobalStyle />
       <form onSubmit={submit}>
         <input
           name={"name"}
@@ -106,7 +105,7 @@ function CreateTrip() {
       <div>
         <button onClick={() => goToAdminHome(navigate)}>Voltar</button>
       </div>
-    </div>
+    </PageContainer>
   );
 }
 
