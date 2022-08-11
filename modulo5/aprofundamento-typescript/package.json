@@ -1,0 +1,20 @@
+{
+  "name": "aprofundamento-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex2": "tsc && node ./build/ex2.js",
+    "ex3": "tsc && node ./build/ex3.js",
+    "desafio5": "tsc && node ./build/desafio-ex5.js",
+    "desafio6": "tsc && node ./build/desafio-ex6.js",
+    "desafio8": "tsc && node ./build/desafio-ex8.js"
+  },
+  "keywords": [],
+  "author": "Lucía Cufré - Hopper",
+  "license": "ISC",
+  "dependencies": {
+    "tsc": "^2.0.4"
+  }
+}
