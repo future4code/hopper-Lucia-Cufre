@@ -9,7 +9,7 @@
     "ex3": "tsc && node ./build/ex3.js",
     "desafio5": "tsc && node ./build/desafio-ex5.js",
     "desafio6": "tsc && node ./build/desafio-ex6.js",
-    "desafio8": "tsc && node ./build/desafio-ex8.js"
+    "desafio7": "tsc && node ./build/desafio-ex7.js"
   },
   "keywords": [],
   "author": "Lucía Cufré - Hopper",
