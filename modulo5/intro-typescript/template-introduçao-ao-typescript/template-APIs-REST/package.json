@@ -1,0 +1,15 @@
+{
+  "name": "itro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/ex5.js"
+  },
+  "keywords": [],
+  "author": "Lucia Cufre",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
