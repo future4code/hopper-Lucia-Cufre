@@ -76,6 +76,18 @@ app.post("/users/:cpf", (req: Request, res: Response) => {
       );
     }
 
+    const userExist = users.find((u) => cpf === u.CPF);
+
+    if (!userExist) {
+      statusCode = 404;
+      throw new Error("Usuario nao encontrado");
+    }
+
+    if (userExist.balance < value) {
+      statusCode = 403;
+      throw new Error("Nao possui saldo suficiente");
+    }
+
     const newPayAccount = {
       expirationDate: expirationDate,
       accountDescription: accountDescription,
@@ -85,7 +97,7 @@ app.post("/users/:cpf", (req: Request, res: Response) => {
     };
 
     users.forEach((u) => {
-      if (cpf === u.CPF) {
+      if (userExist) {
         u.statement.map((u) => {
           u.payAccount.push(newPayAccount);
         });
@@ -111,13 +123,16 @@ app.get("/users/:cpf", (req: Request, res: Response) => {
   let statusCode = 400;
   try {
     const cpf = Number(req.params.cpf);
+    const userExist = users.find((u) => cpf === u.CPF);
+
+    if (!userExist) {
+      statusCode = 404;
+      throw new Error("Usuario nao encontrado");
+    }
     users.forEach((u) => {
-      if (cpf === u.CPF) {
+      if (userExist) {
         const balance = { balance: u.balance };
         res.send(balance);
-      } else {
-        statusCode = 404;
-        throw new Error("Usuário nao encontrado");
       }
     });
   } catch (error: any) {
@@ -159,7 +174,7 @@ app.put("/users/addMoney", (req: Request, res: Response) => {
   }
 });
 
-app.put("/users/payAccount", (req: Request, res: Response) => {
+app.put("/users/saldoAtualizado", (req: Request, res: Response) => {
   let statusCode = 400;
   try {
     users.forEach((u) => {
