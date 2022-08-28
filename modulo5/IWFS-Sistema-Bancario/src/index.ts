@@ -1,3 +1,4 @@
+import { atualDate } from "./date";
 import { statement, users } from "./data";
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
@@ -59,20 +60,16 @@ app.post("/users/:cpf", (req: Request, res: Response) => {
     const cpf = Number(req.params.cpf);
     const { expirationDate, accountDescription, value, holderCpf } = req.body;
 
+    if (!expirationDate) {
+      expirationDate === atualDate();
+    }
+
     if (!accountDescription || !value || !holderCpf) {
       statusCode = 422;
       throw new Error("Parâmetros obrigatórios faltando");
     }
 
-    if (!expirationDate) {
-      const dateNow = Date.now();
-      const date = new Date(dateNow);
-      expirationDate === date.toLocaleDateString();
-    }
-
-    const data = new Date(expirationDate);
-
-    if (expirationDate < new Date()) {
+    if (expirationDate < atualDate()) {
       statusCode = 422;
       throw new Error(
         "Data de vencimento deve ser igual ou maior a data atual."
@@ -162,22 +159,14 @@ app.put("/users/addMoney", (req: Request, res: Response) => {
   }
 });
 
-/* Crie um novo endpoint put responsável por atualizar o saldo de um cliente. Para isto, percorra os itens do extrato e 
-atualize o saldo somente para as contas cujas datas são anteriores a hoje.  */
-
 app.put("/users/payAccount", (req: Request, res: Response) => {
   let statusCode = 400;
   try {
     users.forEach((u) => {
       u.statement.map((u) => {
-        u.payAccount.forEach((pay) => {
-          const partesData = pay.expirationDate.split("/");
-          const data = new Date(
-            Number(partesData[2]),
-            Number(partesData[1]) - 1,
-            Number(partesData[0])
-          );
-          if (data <= new Date()) {
+        u.payAccount.map((pay) => {
+          const data = new Date(pay.expirationDate);
+          if (pay.expirationDate < atualDate()) {
             users.map((u) => {
               u.balance = u.balance - pay.value;
               // está diminuindo o total de todos os valores todas as vezes que fizer o put, fiz um id para cada pay mas nao sei como aplicar
