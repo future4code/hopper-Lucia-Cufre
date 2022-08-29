@@ -1,5 +1,5 @@
 import { atualDate } from "./date";
-import { statement, users } from "./data";
+import { users } from "./data";
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
@@ -14,6 +14,12 @@ app.post("/users", (req: Request, res: Response) => {
   try {
     const { name, CPF, birthDate } = req.body;
 
+    const userExist = users.find((u) => CPF === u.CPF);
+
+    if (userExist) {
+      statusCode = 409;
+      throw new Error("Ja existe um usuario com esse cpf cadastrado.");
+    }
     if (!name || !CPF || !birthDate) {
       statusCode = 422;
       throw new Error("Parâmetros obrigatórios faltando");
@@ -129,12 +135,14 @@ app.get("/users/:cpf", (req: Request, res: Response) => {
       statusCode = 404;
       throw new Error("Usuario nao encontrado");
     }
+
+    let balance;
     users.forEach((u) => {
       if (userExist) {
-        const balance = { balance: u.balance };
-        res.send(balance);
+        balance = { balance: u.balance };
       }
     });
+    res.status(200).send(balance);
   } catch (error: any) {
     res.status(statusCode).send(error.message);
   }
@@ -152,8 +160,15 @@ app.put("/users/addMoney", (req: Request, res: Response) => {
     const dateNow = Date.now();
     const date = new Date(dateNow);
 
+    const userExist = users.find((u) => CPF === u.CPF && name === u.name);
+
+    if (!userExist) {
+      statusCode = 404;
+      throw new Error("Os parâmetros name e/ou cpf estão incorretos");
+    }
+
     users.forEach((u) => {
-      if (name === u.name && CPF === u.CPF) {
+      if (userExist) {
         (u.name = name), (u.CPF = CPF), (u.balance = u.balance + value);
         const newDeposit = {
           value: value,
@@ -163,9 +178,6 @@ app.put("/users/addMoney", (req: Request, res: Response) => {
         u.statement.map((u) => {
           u.deposit.push(newDeposit);
         });
-      } else {
-        statusCode = 404;
-        throw new Error("Os parâmetros name e/ou cpf estão incorretos");
       }
       res.status(200).send(users);
     });
