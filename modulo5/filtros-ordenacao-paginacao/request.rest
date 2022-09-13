@@ -1,0 +1,2 @@
+GET http://localhost:3003/users/:type
+Content-Type: application/json
