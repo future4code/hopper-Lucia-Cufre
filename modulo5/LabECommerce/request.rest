@@ -1,0 +1,38 @@
+POST http://localhost:3003/users 
+Content-Type: application/json
+
+{
+"name": "Monica",
+"email": "monica@hotmail.com",
+"password": "123456"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Barraca",
+    "price": 500,
+    "image_url": "https://i.picsum.photos/id/1036/4608/3072.jpg?hmac=Tn9CS_V7lFSMMgAI5k1M38Mdj-YEJR9dPJCyeXNpnZc"
+}
+
+###
+
+GET http://localhost:3003/products
+
+###
+
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "user_id": "88dc3821-35ad-41a9-ace2-08e1dfb9c8be",
+    "product_id": "043224ee-b50f-4a63-9e95-b13bd0e983c0",
+    "quantity": 2
+}
