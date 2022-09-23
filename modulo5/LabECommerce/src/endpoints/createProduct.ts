@@ -2,7 +2,10 @@ import connection from "../database/connection";
 import { Request, Response } from "express";
 import { v4 as uuidv4 } from "uuid";
 
-export async function createProduct(req: Request, res: Response): Promise<void> {
+export async function createProduct(
+  req: Request,
+  res: Response
+): Promise<void> {
   let statusCode = 400;
   try {
     const { name, price, image_url } = req.body;

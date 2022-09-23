@@ -24,16 +24,16 @@ export async function createUser(req: Request, res: Response): Promise<void> {
       id: uuidv4(),
       name,
       email,
-      password
+      password,
     });
 
-     await transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.NODEMAILER_USER,
       to: email,
       subject: "Criação da conta!",
       text: "Parabéns, conta criada com sucesso",
-      html: `<p>Parabéns ${name}, sua conta foi criada com sucesso ❤️</p>`
-   })
+      html: `<p>Parabéns ${name}, sua conta foi criada com sucesso ❤️</p>`,
+    });
 
     res.status(201).end();
   } catch (error: any) {

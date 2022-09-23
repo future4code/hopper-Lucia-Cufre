@@ -34,11 +34,13 @@ Content-Type: application/json
 {
     "user_id": "acbd6025-c7c3-410e-91f0-1704d37ace99",
     "product_id": "043224ee-b50f-4a63-9e95-b13bd0e983c0",
-    "quantity": 2
+    "quantity": 5
 }
 
 ###
 
-GET http://localhost:3003/users/acbd6025-c7c3-410e-91f0-174d37ace99/purchases
-Content-Type: application/json
+GET http://localhost:3003/users/88dc3821-35ad-41a9-ace2-08e1dfb9c8be/purchases
 
+###
+
+GET http://localhost:3003/purchases
