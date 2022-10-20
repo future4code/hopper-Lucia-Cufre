@@ -1,0 +1,25 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Susana",
+    "email": "susana@hotmail.com.ar",
+    "password": "1234"
+
+}
+
+###
+
+POST http://localhost:3003/posts
+Content-Type: application/json
+
+{
+    "photo": "photo2",
+    "description": "photo2",
+    "type": "event",
+    "createdAt": "20/09/1995",
+    "authorId": "1666292943172"
+}
+
+###
+GET http://localhost:3003/posts/1666293296997
