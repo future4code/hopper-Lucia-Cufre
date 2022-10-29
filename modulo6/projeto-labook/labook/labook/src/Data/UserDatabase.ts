@@ -1,16 +1,17 @@
+import { User } from "./../models/user";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
   private static TABLE_NAME = "labook_users";
 
-  async createUser({ id, name, email, password }: any) {
+  async createUser(user: User) {
     try {
       await UserDatabase.connection
         .insert({
-          id,
-          name,
-          email,
-          password,
+          id: user.getId(),
+          name: user.getName(),
+          email: user.getEmail(),
+          password: user.getPassword(),
         })
         .into(UserDatabase.TABLE_NAME);
     } catch (error: any) {

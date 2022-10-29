@@ -1,3 +1,4 @@
+import { User } from "./../models/user";
 import { InvalidEmail } from "./../error/InvalidEmail";
 import { regexEmail } from "./../services/regexEmail";
 import { InvalidRequest } from "./../error/InvalidRequest";
@@ -13,12 +14,8 @@ export class UserBusiness {
       }
 
       const id: string = generateId();
-      const user = {
-        id,
-        name,
-        email,
-        password,
-      };
+      const user = new User(id, name, email, password);
+      
       const regExp = regexEmail();
 
       if (regExp.test(email) !== true) {
