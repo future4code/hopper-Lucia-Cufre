@@ -4,3 +4,4 @@ export const friendRouter = express.Router()
 const friendController = new FriendsController()
 
 friendRouter.post("/", friendController.createFriendship)
+friendRouter.post("/delete/:id")

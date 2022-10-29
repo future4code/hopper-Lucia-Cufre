@@ -19,4 +19,19 @@ export class FriendsController {
         .send(error.message || error.sqlMessage);
     }
   }
+
+  async deleteFriendship(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = req.params
+      const friendId = req.params
+
+      const friendBusiness = new FriendsBusiness()
+      await friendBusiness.deleteFriendship(userId, friendId)
+      res.status(201).send({ message: "Amizade deletada!" });
+    } catch (error:any) {
+      res
+        .status(error.statusCode || 400)
+        .send(error.message || error.sqlMessage);
+    }
+  }
 }

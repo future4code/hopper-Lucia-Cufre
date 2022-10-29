@@ -33,3 +33,7 @@ Content-Type: application/json
     "user_id": "1666209738410",
     "friend_id":"1666836592094"
 }
+
+###
+
+DELETE http://localhost:3003/friends/delete/userId="1666209738410"&friendId="1666836592094"

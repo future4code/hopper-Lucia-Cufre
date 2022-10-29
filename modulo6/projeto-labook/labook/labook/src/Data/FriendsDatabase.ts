@@ -17,10 +17,10 @@ export class FriendsDatabase extends BaseDatabase {
     }
   }
 
-  async deleteFriendship(friendId: string) {
+  async deleteFriendship(friendId: any, userId:any) {
     try {
       await FriendsDatabase.connection(FriendsDatabase.TABLE_NAME)
-        .where("friend_id", "=", friendId)
+        .where("friend_id", "=", friendId).andWhere("user_id", "=", userId)
         .del();
     } catch (error: any) {
       throw new Error(error.message);

@@ -17,4 +17,16 @@ export class FriendsBusiness {
       throw new Error(error.message);
     }
   }
+
+  async deleteFriendship(friendId: any, userId:any):Promise<void>{
+    try {
+      const fId = friendId
+      const uId = userId
+
+      const friendDatabase = new FriendsDatabase()
+      await friendDatabase.deleteFriendship(fId, uId)
+    } catch (error:any) {
+      throw new Error(error.message);
+    }
+  }
 }
