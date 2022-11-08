@@ -1,0 +1,12 @@
+-- Active: 1663887826768@@35.226.146.116@3306@Hopper-4314048-lucia-aman
+
+
+
+CREATE TABLE IF NOT EXISTS Auth_signup(
+    id VARCHAR(64) PRIMARY KEY,
+    email VARCHAR(64) NOT NULL,
+    password VARCHAR(64) NOT NULL
+);
+
+
+
