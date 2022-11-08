@@ -1,0 +1,6 @@
+1. a) Qual a sua opinião em relação a usar strings para representar os ids? Você concorda que seja melhor do que usar números?
+Eu acho que padronizar o type do id facilita a manutenção do código a futuro, eu acho que usando números a possibilidade de criar diferentes ids é mais limitada do que abrindo a possibilidade de incluir letras e outros símbolos nos mesmos.
+
+2. O que a linha as string faz? Por que precisamos usar ela ali?
+Essa linha condiciona que o valor passado deve ser uma string para ser valido, e precisamos usa-la porque a key deve ser uma string.
+
