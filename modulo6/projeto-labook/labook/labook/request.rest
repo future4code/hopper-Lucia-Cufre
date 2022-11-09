@@ -1,0 +1,39 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Gabriela",
+    "email": "gabi@hotmail.com.ar",
+    "password": "1234"
+
+}
+
+###
+
+POST http://localhost:3003/posts
+Content-Type: application/json
+
+{
+    "photo": "photo3",
+    "description": "photo3",
+    "type": "event",
+    "createdAt": "25/09/1995",
+    "authorId": "1666836592094"
+}
+
+###
+GET http://localhost:3003/posts/1666293296997
+
+###
+
+POST http://localhost:3003/friends
+Content-Type: application/json
+
+{
+    "user_id": "1666209738410",
+    "friend_id":"1666836592094"
+}
+
+###
+
+DELETE http://localhost:3003/friends/delete/userId="1666209738410"&friendId="1666836592094"
