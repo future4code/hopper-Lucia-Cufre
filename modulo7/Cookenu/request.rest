@@ -1,0 +1,56 @@
+#Signup
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Ana",
+    "email":"anitta@hotmail.com",
+    "password": "8569758"
+}
+
+### Login
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email":"luli@hotmail.com",
+    "password": "123456"
+}
+
+### Get Profile
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFmOWIwMTQ5LWRlYTEtNDFlOS1iYzkyLTBkNmY2YWFiYTQ2MCIsImlhdCI6MTY2ODEyMjM4OSwiZXhwIjoxNjY4MTI1OTg5fQ.JXJjW5NVu5l52a594kDuzHgbiZcCC15TwAUqWxlQQmY
+
+### Get User Profile
+
+GET http://localhost:3003/user/304d2e8b-aee3-4d84-8609-7a0a6bc3320d
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODIwNDM3MiwiZXhwIjoxNjY4MjA3OTcyfQ.vPwa8dMvdWeL_jHzs1cS8MQIS8EGobvuhyc7u0owU1M
+
+### Follow User
+
+POST http://localhost:3003/user/follow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODIwNDM3MiwiZXhwIjoxNjY4MjA3OTcyfQ.vPwa8dMvdWeL_jHzs1cS8MQIS8EGobvuhyc7u0owU1M
+Content-Type: application/json
+
+{
+    "userToFollowId": "304d2e8b-aee3-4d84-8609-7a0a6bc3320d"
+}
+
+
+### Create Recipe
+
+POST http://localhost:3003/recipe
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODEyOTgwNCwiZXhwIjoxNjY4MTMzNDA0fQ.Ci_05yluEZwfCxvYwvS2MtUfFz0foNsyfti1GLH2nCk
+Content-Type: application/json
+
+{
+    "title": "Frango asado",
+    "description": "Delicioso frango nas brasas"
+}
+
+### Get Recipe
+
+GET http://localhost:3003/recipe/b60b82ca-21ee-4aa2-a407-45c73dc106f5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODIwNzQwOSwiZXhwIjoxNjY4MjExMDA5fQ.oju2OnpPKBVDvxOBK8fGsBca1TIrs1E7uTAJfkxffls
