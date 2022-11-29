@@ -1,3 +1,4 @@
+import { RecipeDatabase } from "./recipeDatabase";
 import { FollowUsers, User } from "./../model/user";
 import { CustomError } from "./../error/customError";
 import { BaseDatabase } from "./baseDatabase";
@@ -62,6 +63,40 @@ export class UserDatabase extends BaseDatabase {
           userToFollowId: followUser.getUserToFollowId(),
         })
         .into(UserDatabase.TABLE_FOLLOWERS);
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public unfollowUser = async (unfollowUserId: string, userId: string) => {
+    try {
+      await UserDatabase.connection(UserDatabase.TABLE_FOLLOWERS)
+        .where("userToFollowId", unfollowUserId)
+        .andWhere("userId", userId)
+        .del();
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public getFeed = async (id: string) => {
+    try {
+      const result = await UserDatabase.connection(
+        `${UserDatabase.TABLE_USERS} as u`
+      )
+        .select(
+          "r.id",
+          "r.title",
+          "r.description",
+          "r.createdAt",
+          "r.userId",
+          "u.name as userName"
+        )
+        .where("f.userToFollowId", "r.userId")
+        .andWhere("f.userId", id)
+        .join(`${RecipeDatabase.TABLE_RECIPES} r`, `u.id`, "=", "r.userId")
+        .join(` ${UserDatabase.TABLE_FOLLOWERS} f`, "u.id", "=", "f.userId");
+        return result
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

@@ -3,9 +3,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Ana",
-    "email":"anitta@hotmail.com",
-    "password": "8569758"
+    "name": "Susana",
+    "email":"susi@hotmail.com",
+    "password": "963214"
 }
 
 ### Login
@@ -31,26 +31,39 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGIt
 ### Follow User
 
 POST http://localhost:3003/user/follow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODIwNDM3MiwiZXhwIjoxNjY4MjA3OTcyfQ.vPwa8dMvdWeL_jHzs1cS8MQIS8EGobvuhyc7u0owU1M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODU0MzViLTM3Y2UtNDgzNS05MjE5LWY3MGM0YjJmYTJiMSIsImlhdCI6MTY2ODM2NDUwNiwiZXhwIjoxNjY4MzY4MTA2fQ.LgPawJQn6kjz4Vg8tpn89EvRCVCNslwpNCrzZaoe6FU
 Content-Type: application/json
 
 {
-    "userToFollowId": "304d2e8b-aee3-4d84-8609-7a0a6bc3320d"
+    "userToFollowId": "28fc401e-4088-4795-9020-ac224f8c2f9d"
 }
 
+### User to Unfollow
+
+DELETE http://localhost:3003/user/unfollow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODI5OTc0MiwiZXhwIjoxNjY4MzAzMzQyfQ.g-eKqjbjwS_EykgeobxQAVLMU2TkgZH7r2sNLqlD2gk
+Content-Type: application/json
+
+{
+    "userToUnfollowId": "cc8560bf-8077-4b14-a9f3-4a662cb088b5"
+}
 
 ### Create Recipe
 
 POST http://localhost:3003/recipe
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODEyOTgwNCwiZXhwIjoxNjY4MTMzNDA0fQ.Ci_05yluEZwfCxvYwvS2MtUfFz0foNsyfti1GLH2nCk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4ZmM0MDFlLTQwODgtNDc5NS05MDIwLWFjMjI0ZjhjMmY5ZCIsImlhdCI6MTY2ODM2NDQ0NSwiZXhwIjoxNjY4MzY4MDQ1fQ.nil7ifKjgq0HxN7KR8my90sY-Vye9kqcGE8Ipq_42Ps
 Content-Type: application/json
 
 {
-    "title": "Frango asado",
-    "description": "Delicioso frango nas brasas"
+    "title": "Asado de carne a la parrilla",
+    "description": "Asado de carne a la parrilla"
 }
 
 ### Get Recipe
 
-GET http://localhost:3003/recipe/b60b82ca-21ee-4aa2-a407-45c73dc106f5
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODIwNzQwOSwiZXhwIjoxNjY4MjExMDA5fQ.oju2OnpPKBVDvxOBK8fGsBca1TIrs1E7uTAJfkxffls
+GET http://localhost:3003/recipe/8b23171b-d044-42cc-a8ad-940071a5a8cb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODM2NDY4OSwiZXhwIjoxNjY4MzY4Mjg5fQ.vteOnVZA3MAvZLFmIP_ueyeI1ZxGc-624v1hsSbDcB4
+
+### Get Feed
+GET http://localhost:3003/user/feed
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2ZDk2OTZlLWQxZGItNDM0Ny05ZWUyLTRiZDMwNmY4NTE5OCIsImlhdCI6MTY2ODM2NDY4OSwiZXhwIjoxNjY4MzY4Mjg5fQ.vteOnVZA3MAvZLFmIP_ueyeI1ZxGc-624v1hsSbDcB4

@@ -23,6 +23,9 @@ CREATE TABLE IF NOT EXISTS Cookenu_user_follow (
     FOREIGN KEY (userToFollowId) REFERENCES Cookenu_users(id)
 );
 
-DROP TABLE Cookenu_user_followers;
+show create table Cookenu_user_follow;
+
+ALTER TABLE Cookenu_recipes modify userId VARCHAR(64) NOT NULL PRIMARY KEY;
 
 
+drop table Cookenu_recipes;

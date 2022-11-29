@@ -83,4 +83,31 @@ export class UserController {
         .send(error.message || error.sqlMessage);
     }
   };
+
+  public unfollowUser = async (req: Request, res: Response) => {
+    try {
+      const userId = req.body.userToUnfollowId;
+      const token = req.headers.authorization as string;
+
+      await userBusiness.unfollowUser(userId, token);
+      res.status(201).send({ message: "Unfollowed successfully" });
+    } catch (error: any) {
+      res
+        .status(error.statusCode || 400)
+        .send(error.message || error.sqlMessage);
+    }
+  };
+
+  public getFeed = async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization as string;
+
+      const feed = await userBusiness.getFeed(token);
+      res.status(200).send({ recipes: feed});
+    } catch (error: any) {
+      res
+        .status(error.statusCode || 400)
+        .send(error.message || error.sqlMessage);
+    }
+  };
 }

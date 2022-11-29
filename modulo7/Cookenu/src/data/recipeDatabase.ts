@@ -4,7 +4,7 @@ import { Recipe } from "./../model/recipe";
 import { BaseDatabase } from "./baseDatabase";
 
 export class RecipeDatabase extends BaseDatabase {
-  private static TABLE_RECIPES = "Cookenu_recipes";
+  public static TABLE_RECIPES = "Cookenu_recipes";
 
   public createRecipe = async (recipe: Recipe) => {
     try {
@@ -22,7 +22,7 @@ export class RecipeDatabase extends BaseDatabase {
     }
   };
 
-  public getRecipe = async (id: string) => {
+  public getRecipe = async (userId: string) => {
     try {
       /* const createdDate = await RecipeDatabase.connection(
         RecipeDatabase.TABLE_RECIPES
@@ -37,12 +37,14 @@ export class RecipeDatabase extends BaseDatabase {
         RecipeDatabase.TABLE_RECIPES
       )
         .select("id", "title", "description", "createdAt" )
-        .where({ id });
+        .where({ userId });
 
-      return recipe[0];
+      return recipe;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   };
+
+
 }
 

@@ -154,4 +154,35 @@ export class UserBusiness {
       throw new CustomError(400, error.message);
     }
   };
+
+  public unfollowUser = async (id: string, token: any): Promise<void> => {
+    try {
+      const userUnfollowId = id;
+      const data = tokenGenerator.tokenData(token);
+      if (!data.id) {
+        throw new Unauthorized();
+      }
+      if (!userUnfollowId) {
+        throw new MissingCredentials();
+      }
+
+      await userDatabase.unfollowUser(userUnfollowId, data.id);
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public getFeed = async(token:any)=> {
+    try {
+      const data = tokenGenerator.tokenData(token);
+      if (!data.id) {
+        throw new Unauthorized();
+      }
+
+      const feed = await userDatabase.getFeed(data.id)
+      return feed
+    } catch (error:any) {
+      throw new CustomError(400, error.message);
+    }
+  }
 }
